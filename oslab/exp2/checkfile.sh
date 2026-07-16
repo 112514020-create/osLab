@@ -1,7 +1,16 @@
 #!/bin/bash
-echo"numbwe of arguments supplied:$#"
+echo"number of arguments supplied:$#"
 for item in"$@"
 do
 if[-f"$item"]
 then
-echo"$item
+echo"$item is a file"
+lines=$(wc-l<"$item")
+echo"Number of lines:$lines"
+elif[-d"$item"]
+then 
+echo"$item is  directory"
+else
+echo"$item does not exist"
+fi 
+done
