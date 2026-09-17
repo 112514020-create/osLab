@@ -22,7 +22,7 @@ We explore, Shared memory: It is one of the fastest IPC mechanisms because multi
 | `sleep()` | Suspends execution for a specified number of seconds (used here to ensure the parent writes before the child reads). |
 
 ## SOURCE CODE :
-**File :** [exp7.c](https://github.com/Balakrishna-0907/osLab/blob/70316965500471adaa1a776957538d59e00b565a/ex07/exp7.c)
+**File :** [exp7.c](https://github.com/112514020-create/osLab/blob/277040a6203fc6bc00064b5b62e34f756a488203/OSALABPROGRAMS/ex07/exp7.c)
 ## COMPILATION :
 
 ```bash
@@ -36,4 +36,4 @@ gcc exp7.c -o exp7
 ```
 
 ## OUTPUT :
-![Output for Experiment 6](https://github.com/Balakrishna-0907/osLab/blob/8b7aba9aa1d69a8dde0b0be80a911b4d695bec61/ex07/output.png)
+![Output for Experiment 6](https://github.com/112514020-create/osLab/blob/277040a6203fc6bc00064b5b62e34f756a488203/OSALABPROGRAMS/ex07/output07.png)
