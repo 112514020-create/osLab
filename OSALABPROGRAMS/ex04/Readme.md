@@ -23,7 +23,7 @@ A process is a program that is currently being executed. Linux allows a process 
 | `sleep()` | Suspends the execution of the current process for the specified number of seconds. *(Library function that internally uses kernel timing services; often included in OS labs.)* |
 
 ## SOURCE CODE (Process Creation) :
-**File:** [forkDemo.c](https://github.com/Balakrishna-0907/osLab/blob/64e00ef5514d1697cd763bd60e1bb2445cc5b9a8/ex04/ProcessCreation/forkDemo.c)
+**File:** [forkDemo.c](https://github.com/112514020-create/osLab/blob/9071f5e86e4fe30773fdf62dc83013a3b96bcfaa/OSALABPROGRAMS/ex04/ProcessCreation/output04(01).png)
 
 ## COMPILATION :
 
@@ -37,7 +37,7 @@ gcc forkDemo.c -o forkDemo
 ./forkDemo
 ```
 ## OUTPUT :
-![Output for Experiment 4_1](https://github.com/Balakrishna-0907/osLab/blob/953e2cd8081d13ef45a844fcaf73a2b3ed8ff625/ex04/ProcessCreation/output.png)
+![Output for Experiment 4_1](https://github.com/112514020-create/osLab/blob/9071f5e86e4fe30773fdf62dc83013a3b96bcfaa/OSALABPROGRAMS/ex04/ProcessCreation/output04(01).png)
 
 ## SOURCE CODE (Process Management) :
 **File:** [waitDemo.c](https://github.com/Balakrishna-0907/osLab/blob/b54d9fc39792c3c0cedaf8d0b8edb331c6f6618b/ex04/ProcessManagement/waitDemo.c)
