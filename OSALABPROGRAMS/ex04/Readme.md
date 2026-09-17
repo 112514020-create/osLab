@@ -40,7 +40,7 @@ gcc forkDemo.c -o forkDemo
 ![Output for Experiment 4_1](https://github.com/112514020-create/osLab/blob/9071f5e86e4fe30773fdf62dc83013a3b96bcfaa/OSALABPROGRAMS/ex04/ProcessCreation/output04(01).png)
 
 ## SOURCE CODE (Process Management) :
-**File:** [waitDemo.c](https://github.com/Balakrishna-0907/osLab/blob/b54d9fc39792c3c0cedaf8d0b8edb331c6f6618b/ex04/ProcessManagement/waitDemo.c)
+**File:** [waitDemo.c](https://github.com/112514020-create/osLab/blob/c6a006d115c950ebdeefcdd69ac29411d42b03e8/OSALABPROGRAMS/ex04/ProcessManagement/WaitDemo.c)
 
 ## COMPILATION :
 
@@ -55,4 +55,4 @@ gcc waitDemo.c -o waitDemo
 ```
 
 ## OUTPUT :
-![Output for Experiment 4_2](https://github.com/Balakrishna-0907/osLab/blob/e8a9597fae7039c2f34e5a07f86a4869e41d1b11/ex04/ProcessManagement/output.png)
+![Output for Experiment 4_2](https://github.com/112514020-create/osLab/blob/c6a006d115c950ebdeefcdd69ac29411d42b03e8/OSALABPROGRAMS/ex04/ProcessManagement/output04(02).png)
