@@ -22,7 +22,7 @@ This C program demonstrates the use of Linux system calls for performing file an
 
 
 ## SOURCE CODE :
-**File :** [fileOperation.c](https://github.com/Balakrishna-0907/osLab/blob/83f875a513e85e4afe397fe52eb569c56e88207b/ex03/fileOperation.c)
+**File :** [fileOperation.c](https://github.com/112514020-create/osLab/blob/0a9c422db9803e3a9b8151f5965b4d7fba06336b/OSALABPROGRAMS/ex03/fileOperation.c)
 
 ## COMPILATION :
 
@@ -37,4 +37,4 @@ gcc fileOperation.c -o fileOperation
 ```
 
 ## OUTPUT :
-![Output for Experiment 3](https://github.com/Balakrishna-0907/osLab/blob/4b613f0f6f32125e40dce4d580984758b52d3cf8/ex03/output.png)
+![Output for Experiment 3](https://github.com/112514020-create/osLab/blob/0a9c422db9803e3a9b8151f5965b4d7fba06336b/OSALABPROGRAMS/ex03/output03.png)
