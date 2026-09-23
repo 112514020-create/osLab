@@ -1,93 +1,111 @@
-#include <stdio.h>
-
-struct Process
-{
-	int id;
-	int arrival_time;
-	int burst_time;
-	int completion_time;
-	int turnaround_time;
-	int waiting_time;
-};
+#include <stdio.h> // Standard input/output library
 
 int main()
 {
-	int n;
-	float total_wt = 0, total_tat = 0;
+	// Array to store page reference string (maximum 100 pages)
+	int pages[100];
 
-	printf("Enter number of processes: ");
+	// Array to represent memory frames (maximum 50 frames)
+	int frames[50];
 
-	if (scanf("%d", &n) != 1 || n <= 0)
+	// n = number of pages
+	// f = number of frames
+	int n, f;
+
+	// Loop variables
+	int i, j;
+
+	// Counts total page faults
+	int pageFaults = 0;
+
+	// Points to the next frame to be replaced (FIFO pointer)
+	int index = 0;
+
+	// Flag to check whether page is already in memory
+	int found;
+
+	// Read number of page references
+	printf("Enter number of pages: ");
+	scanf("%d", &n);
+
+	// Read page reference string
+	printf("Enter page reference string:\n");
+
+	for (i = 0; i < n; i++)
 	{
-		printf("Invalid number of processes.\n");
-		return 1;
+		scanf("%d", &pages[i]);
 	}
 
-	struct Process p[n];
+	// Read number of available frames
+	printf("Enter number of frames: ");
+	scanf("%d", &f);
 
-	// Read user inputs
-	for (int i = 0; i < n; i++)
+	// Initially all frames are empty
+	for (i = 0; i < f; i++)
 	{
-		p[i].id = i + 1;
-
-		printf("Enter Arrival Time and Burst Time for Process %d: ",
-		       p[i].id);
-
-		scanf("%d %d", &p[i].arrival_time, &p[i].burst_time);
+		frames[i] = -1;
 	}
 
-	// Sort processes based on Arrival Time (Bubble Sort)
-	for (int i = 0; i < n - 1; i++)
+	// Display heading
+	printf("\nPage\tFrames\n");
+
+	// Process each page in the reference string
+	for (i = 0; i < n; i++)
 	{
-		for (int j = 0; j < n - i - 1; j++)
+		// Assume page is not present
+		found = 0;
+
+		// Search all frames to check if page already exists
+		for (j = 0; j < f; j++)
 		{
-			if (p[j].arrival_time > p[j + 1].arrival_time)
+			// Page found in memory
+			if (frames[j] == pages[i])
 			{
-				struct Process temp = p[j];
-				p[j] = p[j + 1];
-				p[j + 1] = temp;
+				found = 1;
+				break; // No need to continue searching
 			}
 		}
-	}
 
-	// FCFS Scheduling Calculations
-	int current_time = 0;
-
-	for (int i = 0; i < n; i++)
-	{
-		// If CPU is idle waiting for the next process to arrive
-		if (current_time < p[i].arrival_time)
+		// If page is not found, page fault occurs
+		if (!found)
 		{
-			current_time = p[i].arrival_time;
+			// Replace the oldest page using FIFO
+			frames[index] = pages[i];
+
+			// Move pointer to next frame
+			index = (index + 1) % f;
+
+			// Increase page fault count
+			pageFaults++;
 		}
 
-		p[i].completion_time = current_time + p[i].burst_time;
-		p[i].turnaround_time = p[i].completion_time - p[i].arrival_time;
-		p[i].waiting_time = p[i].turnaround_time - p[i].burst_time;
+		// Print current page
+		printf("%d\t", pages[i]);
 
-		current_time = p[i].completion_time;
+		// Display contents of all frames
+		for (j = 0; j < f; j++)
+		{
+			// Empty frame
+			if (frames[j] == -1)
+				printf("- ");
 
-		total_wt += p[i].waiting_time;
-		total_tat += p[i].turnaround_time;
+			// Occupied frame
+			else
+				printf("%d ", frames[j]);
+		}
+
+		// Display if page fault occurred
+		if (!found)
+			printf("(Page Fault)");
+
+		printf("\n");
 	}
 
-	// Print Results Matrix
-	printf("\n%-10s %-10s %-10s %-12s %-12s %-10s\n",
-	       "Process", "Arrival", "Burst", "Completion", "Turnaround", "Waiting");
+	// Display final statistics
+	printf("\nTotal Page Faults = %d\n", pageFaults);
 
-	for (int i = 0; i < n; i++)
-	{
-		printf("P%-9d %-10d %-10d %-12d %-12d %-10d\n",
-		       p[i].id,
-		       p[i].arrival_time,
-		       p[i].burst_time,
-		       p[i].completion_time,
-		       p[i].turnaround_time,
-		       p[i].waiting_time);
-	}
+	// Hits = Total Pages - Page Faults
+	printf("Total Page Hits = %d\n", n - pageFaults);
 
-	printf("\nAverage Turnaround Time = %.2f", total_tat / n);
-	printf("\nAverage Waiting Time = %.2f\n", total_wt / n);
-
-	return 0;
+	return 0; // End of program
 }
